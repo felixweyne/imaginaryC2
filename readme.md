@@ -23,4 +23,4 @@ One of TrickBot's plugins is called _injectdll_, a plugin which is responsible f
 #### Imaginary C2 in action:  
 The below video shows the TrickBot downloader running inside _svchost.exe_ and connecting to imaginary C2 to download two modules. Each downloaded module gets injected into a newly spawned _svchost.exe_ instance. The webinject module tries to steal the browser's saved passwords and exfiltrates the stolen passwords to the TrickBot server. Upon visiting a targeted banking website, TrickBot redirects the browser to the _webfake server_. In the demo, the _webfake server_ hosts the message: "Default imaginary C2 server response".  
 
-![Imaginary C2 simulating TrickBot server](media/imaginary_c2_trickbot_simulation.mp4?raw=true)  
+![Imaginary C2 simulating TrickBot server](media/imaginary_c2_trickbot_simulation.gif?raw=true)  
