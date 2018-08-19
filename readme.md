@@ -16,7 +16,7 @@ Imaginary C2 can be used to simulate the hosting of TrickBot components and conf
 #### How it works:  
 Upon execution, the TrickBot downloader connects to a set of hardcoded IPs to fetch a few configuration files. One of these configuration files contains the locations (IP addresses) of the TrickBot plugin servers. The Trickbot downloader downloads the plugins (modules) from these servers and decrypts them. The decrypted modules are then injected into a _svchost.exe_ instance.  
 
-![Example decoded TrickBot configuration files](media/trickbot_webinject_configuration.png?raw=true)  
+![Example decoded TrickBot configuration files](media/trickbot_webinject_configuration.png?raw=true) <!-- .element height="50%" width="50%" -->  
 
 One of TrickBot's plugins is called _injectdll_, a plugin which is responsible for TrickBot's webinjects. The _injectdll_ plugin regularly fetches an updated set of webinject configurations. For each targeted (banking) website in the configuration, the address of a _webfake server_ is defined. When a victim browses to a (banking) website which is targeted by TrickBot, his browser secretly gets redirected to the _webfake server_. The _webfake server_ hosts a replica of the targeted website. This replica website usually is used in a social-engineering attack to defraud the victim.  
 
