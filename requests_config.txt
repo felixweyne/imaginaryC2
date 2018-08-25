@@ -1,0 +1,31 @@
+{
+	"default":{
+		"source":"default.html",
+		"sourcetype":"data",
+		"addHeader0":["Content-type", "text/html"]
+	},
+	"requests":[ 
+		{ 
+			"url":"time",
+			"urltype":"fixed", 
+			"source":"time.py",
+			"sourcetype":"python"
+		},
+		{ 
+			"url":".+\\.jpg",
+			"urltype":"regex", 
+			"source":"defaultImage.jpg",
+			"sourcetype":"data",
+			"addHeader0":["Expires","-1"],
+			"addHeader1":["Last-Modified","Mon, 11 Jun 1998 01:02:03 GMT"],
+			"addHeader2":["Content-type","image/jpg"],
+			"comment":"Capture all JPG image requests"
+		},
+		{ 
+			"url":"post-example",
+			"urltype":"fixed", 
+			"source":"post-example.py",
+			"sourcetype":"python"
+		}
+	]
+}

@@ -1,0 +1,5 @@
+# place a domain or IP which needs to be redirected to the local host (split by lines)
+# requests to the below entries will be redirected to imaginary C2
+3.6.9.3
+abcdef.co.uk
+www.test.com

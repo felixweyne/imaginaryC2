@@ -1,0 +1,64 @@
+{
+	"default":{
+		"source":"default.html",
+		"sourcetype":"data",
+		"addHeader0":["Content-type", "text/html"],
+		"comment":"default response, webfake server message simulation"
+	},
+	"requests":[ 
+		{ 
+			"url":".+/.+/5/spk",
+			"urltype":"regex", 
+			"source":"d99721a5284582a3ce835a232f46f320549979f1",
+			"sourcetype":"data",
+			"comment":"encrypted expiry tag"
+		},
+		{ 
+			"url":".+/.+/0/Windows.+",
+			"urltype":"regex", 
+			"source":"a40a13b45eb86bb3a80ec0d6e4efc9204b3a61ac",
+			"sourcetype":"data",
+			"comment":"encrypted plugin server locations"
+		},
+		{ 
+			"url":".+/.+/5/systeminfo64",
+			"urltype":"regex", 
+			"source":"systeminfo.6335423e9fda0547fdd0914fac2be3783a65d23c",
+			"sourcetype":"data",
+			"comment":"encrypted systeminfo module"
+		},
+		{ 
+			"url":".+/.+/5/injectDll64",
+			"urltype":"regex", 
+			"source":"injectdll.440187b443703e3e0f265cd68292723d4e2bdacc",
+			"sourcetype":"data",
+			"comment":"encrypted injectdll module (webinjects)"
+		},
+		{ 
+			"url":".+/.+/5/sinj",
+			"urltype":"regex", 
+			"source":"sinj.d197a72f43414697a3754caeaae814ca894da31e",
+			"sourcetype":"data",
+			"comment":"encrypted static webinject (web fake) configuration"
+		},
+		{ 
+			"url":".+/.+/5/dinj",
+			"urltype":"regex", 
+			"source":"dinj.314dfc04a8a2347fbc14235d6e7dd3a6cf968cd4",
+			"sourcetype":"data",
+			"comment":"encrypted dynamic webinject (server side webinject) configuration"
+		},
+		{ 
+			"url":".+/.+/5/dpost",
+			"urltype":"regex", 
+			"source":"dpost.b6c75bc64bb68676570e96fd6312cd55888fc254",
+			"sourcetype":"data"
+		},
+		{ 
+			"url":".+/.+/64/",
+			"urltype":"regex", 
+			"source":"one.txt",
+			"sourcetype":"data"
+		}
+	]
+}
