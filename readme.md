@@ -9,6 +9,10 @@ By using this tool, an analyst can feed the malware consistent network responses
 
 ![Imaginary C2](media/imaginary_c2.png?raw=true)
 
+### Replay packet captures  
+Imaginary C2 provides two scripts to convert _packet captures (PCAPs)_ or _Fiddler Session Archives_ into __request definitions__ which can be parsed by imaginary C2.
+Via these scripts the user can extract HTTP request URLs and domains, as well as HTTP responses. This way, one can quickly replay HTTP responses for a given HTTP request.
+
 ### Demo use case: Simulating TrickBot servers  
 
 Imaginary C2 can be used to simulate the hosting of TrickBot components and configuration files. Additionally, it can also be used to simulate TrickBot's web injection servers.  
