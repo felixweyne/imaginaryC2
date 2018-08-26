@@ -134,13 +134,13 @@ while (stop_input == False):
 					else:
 						print "        <>Path already in JSON request_config"
 
-				#Double-check that encodings have been disabled
-				if "Transfer-Encoding"  in http_headers:
-					encoding_type = re.findall("Transfer-Encoding: ([^\r]{3,20})", http_headers)[0]
-					print "        Info: seems like HTTP response is encoded with: "+encoding_type+" (transfer-encoding)"
-				if "Content-Encoding" in http_headers:
-					encoding_type = re.findall("Content-Encoding: ([^\r]{3,20})", http_headers)[0]
-					print "        Info: seems like HTTP response is encoded with: "+encoding_type+" (content-encoding)"
+					#Double-check that encodings have been disabled
+					if "Transfer-Encoding"  in http_headers:
+						encoding_type = re.findall("Transfer-Encoding: ([^\r]{3,20})", http_headers)[0]
+						print "        Info: seems like HTTP response is encoded with: "+encoding_type+" (transfer-encoding)"
+					if "Content-Encoding" in http_headers:
+						encoding_type = re.findall("Content-Encoding: ([^\r]{3,20})", http_headers)[0]
+						print "        Info: seems like HTTP response is encoded with: "+encoding_type+" (content-encoding)"
 
 					if os.path.isfile(http_response_exported_file):
 						print "        <>HTTP response already written to: "+http_response_hex
