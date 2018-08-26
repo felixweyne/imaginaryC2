@@ -1,7 +1,6 @@
 # Imaginary C2  
 
 _author:_ Felix Weyne  
-_requirements:_ Windows, Python 2.7
 
 Imaginary C2 is a python tool which aims to help in the behavioral (network) analysis of malware.  
 Imaginary C2 hosts a HTTP server which captures HTTP requests towards selectively chosen domains/IPs. Additionally, the tool aims to make it easy to replay captured Command-and-Control responses/served payloads.  
@@ -13,6 +12,19 @@ By using this tool, an analyst can feed the malware consistent network responses
 ### Replay packet captures  
 Imaginary C2 provides two scripts to convert _packet captures (PCAPs)_ or _Fiddler Session Archives_ into __request definitions__ which can be parsed by imaginary C2.
 Via these scripts the user can extract HTTP request URLs and domains, as well as HTTP responses. This way, one can quickly replay HTTP responses for a given HTTP request.
+
+### Technical details
+Currently, Imaginary C2 contains three main modules and two configuration files:
+
+| Filename										 | Function 
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------
+| 1. imaginary_c2.py							 | Hosts python's simple HTTP server. Main module.
+| 2. redirect_to_imaginary_c2.py 				 | Alters Windows's host file and Window's (IP) Routing Table.
+| 3. unpack_fiddler_archive.py & unpack_pcap.py	 | Extracts files from packet captures. Adds corresponding domains and URLs to the configuration files.
+| 4. redirect_config.txt 						 | Contains domains and IPs which needs to be redirected to localhost (to the python HTTP server).
+| 5. requests_config.txt 						 | Contains URL path definitions with corresponding data sources.
+
+#####test
 
 ### Demo use case: Simulating TrickBot servers  
 
@@ -29,3 +41,4 @@ One of TrickBot's plugins is called _injectdll_, a plugin which is responsible f
 The below video shows the TrickBot downloader running inside _svchost.exe_ and connecting to imaginary C2 to download two modules. Each downloaded module gets injected into a newly spawned _svchost.exe_ instance. The webinject module tries to steal the browser's saved passwords and exfiltrates the stolen passwords to the TrickBot server. Upon visiting a targeted banking website, TrickBot redirects the browser to the _webfake server_. In the demo, the _webfake server_ hosts the message: "Default imaginary C2 server response" [(full video)](media/imaginary_c2_trickbot_simulation.mp4?raw=true).  
 
 ![Imaginary C2 simulating TrickBot server](media/imaginary_c2_trickbot_simulation.gif?raw=true)  
+
