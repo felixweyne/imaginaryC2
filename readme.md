@@ -1,6 +1,6 @@
 # Imaginary C2  
 
-_author:_ Felix Weyne ([website](https://www.uperesia.com)) ([twitter](https://twitter.com/felixw3000))    
+_author:_ Felix Weyne ([website](https://www.uperesia.com)) ([Twitter](https://twitter.com/felixw3000))    
 
 Imaginary C2 is a python tool which aims to help in the behavioral (network) analysis of malware.  
 Imaginary C2 hosts a HTTP server which captures HTTP requests towards selectively chosen domains/IPs. Additionally, the tool aims to make it easy to replay captured Command-and-Control responses/served payloads.  
