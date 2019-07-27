@@ -27,6 +27,7 @@ import binascii
 import http_decompress
 
 tshark_location = "C:\\Program Files\\Wireshark\\tshark.exe"
+debug = False
 
 #parse PCAP with commandline wireshark for HTTP requests
 #1. Filter PCAP on presence of HTTP requests
@@ -50,7 +51,12 @@ if not(os.path.isfile(pcap_file_path)):
 
 tshark_output = ""
 try:
-	tshark_output = subprocess.check_output(tshark_command, shell=True)
+	if debug:
+		print "## Launching cmdline: "+tshark_command
+	tshark_output = subprocess.check_output(tshark_command, shell=False)
+	if debug:
+		print "## Tshark returned:"
+		print tshark_output
 except subprocess.CalledProcessError as exc:
 	print "Error while parsing PCAP:" +exc
 	sys.exit(-1)
@@ -67,6 +73,9 @@ stream_dict = {}
 tshark_output_splitted = re.split('\t|\r',tshark_output)
 for column in tshark_output_splitted:
 	column = column.replace("\n","")
+	if debug:
+		print "## ("+str(tshark_column_index)+") " + column
+
 	if tshark_column_index == 1:
 		temp_framenumber = column
 	if tshark_column_index == 2:
@@ -87,6 +96,19 @@ for column in tshark_output_splitted:
 		continue
 	tshark_column_index += 1
 
+if debug:
+	print ""
+	print "## List(tcpstream_nr,frame_nr):"
+	print "## " + str(stream_dict)
+	print ""
+	
+	temp_counter=0
+	print "##(frame_nr,stream_nr,hostname,URL):"
+	for entry in http_urls:
+		print "## (" + str(temp_counter) + ") " + str(entry)
+		temp_counter += 1
+	print ""
+
 entry_count = 0
 for entry in http_urls:
 	print str(entry_count)+": http://"+entry[2]+entry[3]
@@ -97,10 +119,12 @@ def extract_responses_from_tcp_stream(tcpStreamNumber):
 	tshark_argument_tcp_stream = "-q -z \"follow,tcp,raw,"+str(tcpStreamNumber)+"\""
 	tshark_command = "\""+tshark_location+"\" "+tshark_argument_pcap_location+" "+tshark_argument_tcp_stream
 
+	if debug:
+		print "## Calling Tshark: " +tshark_command
 	#parse PCAP with commandline wireshark for HTTP requests
 	tshark_output = ""
 	try:
-		tshark_output = subprocess.check_output(tshark_command, shell=True)
+		tshark_output = subprocess.check_output(tshark_command, shell=False)
 	except subprocess.CalledProcessError as exc:
 		print "Error while parsing PCAP:" +exc
 		sys.exit(-1)
@@ -118,6 +142,18 @@ def extract_responses_from_tcp_stream(tcpStreamNumber):
 	for i in range(0, len(tshark_output_splitted)-1):
 		if re.match("\\n[A-Fa-f0-9]{15}", tshark_output_splitted[i]):
 			start_of_stream_output = i
+			break
+	if debug:
+		print "## Tshark TCP stream output starts at index: "+str(start_of_stream_output)
+		temp_counter=0
+		for entry in tshark_output_splitted:
+			entry_shortened = entry[0:20].replace("\n","")
+			hexadecimal_match = re.search("[A-Fa-f0-9]{4,16}", entry_shortened)
+			hexadecimal_decoded = ""
+			if hexadecimal_match:
+				hexadecimal_decoded = binascii.unhexlify(hexadecimal_match.group(0))
+			print "## ("+str(temp_counter)+") "+entry_shortened+"... ("+hexadecimal_decoded+")"
+			temp_counter+=1
 	for i in range(start_of_stream_output, len(tshark_output_splitted)-1):
 		tcp_stream_lines = tshark_output_splitted[i].replace("\n","")
 		#check if we are in response area. If so, continue building the response
@@ -128,11 +164,22 @@ def extract_responses_from_tcp_stream(tcpStreamNumber):
 			if len(temp_tcp_response) > 0:
 				tcp_responses.append(temp_tcp_response)
 			temp_tcp_response = ""
+	if debug:
+		print ""
+		print "## Found: "+str(len(tcp_responses))+" TCP response(s):"
+		for entry in tcp_responses:
+			print "## length: "+str(len(entry))+". Start: " + entry[0:30] +"..."
+		print ""
 	return tcp_responses
 
 def select_response(responses, tcpStreamNumber, framenumber):
+	if debug:
+		print "## Selecting the response for which the request is situated at frame nr: "+framenumber+" and TCP stream nr: "+tcpStreamNumber
 	frame_numbers = stream_dict[tcpStreamNumber]
 	index=frame_numbers.index(framenumber)
+	if debug:
+		print "## This corresponds with TCP response nr: "+str(index)
+		print ""
 	return responses[index]
 	
 print "\r\n    Enter the number of the stream you want to export."
@@ -188,16 +235,25 @@ while (stop_input == False):
 				http_request_path = http_request_path[1:]
 			print "        *domain: "+http_request_domain
 			print "        *path: "+http_request_path
-
-			tcp_stream = extract_responses_from_tcp_stream(http_urls[int(my_input)][1])
+			tcp_stream_nr=http_urls[int(my_input)][1]
+			if debug:
+				print "## Response is inside TCP stream number: "+str(tcp_stream_nr)
+			tcp_stream = extract_responses_from_tcp_stream(tcp_stream_nr)
 			response_contents = select_response(tcp_stream,http_urls[int(my_input)][1], http_urls[int(my_input)][0])
-			
 			response_contents =  binascii.unhexlify(response_contents)
+			if debug:
+				print "## Start extracted response (headers): "
+				print response_contents[0:100]
+				print ""
 			http_response_body_offset = response_contents.find('\r\n\r\n')
 			if http_response_body_offset >= 0:
 				stream_properties = {"file":False, "domain":False, "path":False}
 				http_headers = response_contents[:http_response_body_offset]
 				http_response = response_contents[http_response_body_offset+4:]
+				if debug:
+					print "## Start extracted response (body): "
+					print http_response[0:100]
+					print ""
 				hash_object = hashlib.sha1(http_response)
 				http_response_hex = hash_object.hexdigest()
 				http_response_exported_file = data_folder + http_response_hex
