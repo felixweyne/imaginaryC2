@@ -31,6 +31,7 @@ one_directory_up = dirname(dirname(abspath(__file__)))
 config_data = json.load(open(one_directory_up+'\\requests_config.txt'))
 server_data_folder = one_directory_up + "\\server_data\\"
 bin_folder = one_directory_up + "\\bin\\"
+HTTP_oneDotOne_enabled=False
 #pprint(config_data)
 
 def printlog(logMessage,isResponse=False):
@@ -42,8 +43,7 @@ def printlog(logMessage,isResponse=False):
 		file.write("----- OUTGOING Response ----->\n")
 		file.write(logMessage+"\n")
 		file.write("<----------------\n\n")
-
-	file.close()
+		file.close()
 	
 request_count = 0
 fixed_URL_list = []
@@ -57,6 +57,9 @@ for config_entry in config_data["requests"]:
 		regex_URL_list.append(config_entry["url"])
 
 class RequestHandler(BaseHTTPRequestHandler): 
+	if HTTP_oneDotOne_enabled:
+		protocol_version = 'HTTP/1.1'
+
 	#remove this to get default SimpleHTTP server log output 
 	#overwrites function log_message in Python27\Lib\BaseHTTPServer.py
 	def log_message(self, format, *args):
@@ -66,7 +69,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 		request_path = self.path
 		self.log_my_request("GET")
 		self.send_response(200)
-		
+
 		self.process_request(request_path)
 
 	def do_POST(self):
@@ -87,7 +90,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 		global request_count
 		request_count = request_count + 1
 		verbose = True
-		
+
 		now = datetime.datetime.now()		
 		log_line = "["+now.strftime("%H:%M:%S")+"] \""+request_type+" "+request_path+"\" (host: "+self.headers.get('Host')+")"
 
@@ -105,7 +108,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 			printlog("<----------------\n")
 		else:
 			printlog(log_line)
-		
+
 	def process_request(self,request_path,post_request=""):
 		#remove get parameters. E.g.: index.php?param1=value1&param2=value2 -> index.php
 		request_path_filtered = urlparse.urlparse(urllib.unquote(request_path[1:]))[2]
@@ -149,6 +152,11 @@ class RequestHandler(BaseHTTPRequestHandler):
 			request_config = config_data["default"]
 			self.get_response_data(request_config,request_path,post_request)
 	####--STOP-- default request#####
+	
+	def send_tail_headers(self,contentLength):
+		self.send_header("Content-Length",str(contentLength)) 
+		self.send_header("Connection", "keep-alive")
+		self.end_headers()
 
 	def get_response_data(self,request_config,request_path,post_request):
 		response_log = ""
@@ -157,13 +165,16 @@ class RequestHandler(BaseHTTPRequestHandler):
 			if key.startswith("addHeader"):
 				response_log = response_log + "Header: "+request_config[key][0]+":"+request_config[key][1] + " \n"
 				self.send_header(request_config[key][0],request_config[key][1]) 
-		self.end_headers()
+		if not HTTP_oneDotOne_enabled:
+			self.end_headers()
 
-		#body
+		#body (&Content-Length header in case of HTTP 1.1)
 		source_type=request_config["sourcetype"]
 		if source_type=="data":
 			with open(server_data_folder+request_config["source"], 'rb') as f: 
 				file_contents = f.read()
+				if HTTP_oneDotOne_enabled:
+					self.send_tail_headers(len(file_contents))
 				self.wfile.write(file_contents)
 				try:
 					response_log = response_log + file_contents
@@ -172,10 +183,13 @@ class RequestHandler(BaseHTTPRequestHandler):
 		elif source_type=="python":
 			script_output = ""
 			if (len(post_request) > 0):
+				post_request=base64.b64encode(post_request)
 				script_output = subprocess.check_output([sys.executable, server_data_folder+request_config["source"], request_path, post_request]).strip()
 			else:
 				script_output = subprocess.check_output([sys.executable, server_data_folder+request_config["source"], request_path]).strip()
 			script_output = base64.b64decode(script_output)
+			if HTTP_oneDotOne_enabled:
+				self.send_tail_headers(len(script_output))
 			self.wfile.write(script_output)
 			try:
 				response_log = response_log + script_output

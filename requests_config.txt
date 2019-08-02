@@ -9,7 +9,8 @@
 			"url":"time",
 			"urltype":"fixed", 
 			"source":"time.py",
-			"sourcetype":"python"
+			"sourcetype":"python",
+			"addHeader0":["Content-type","text/html"]
 		},
 		{ 
 			"url":".+\\.jpg",
