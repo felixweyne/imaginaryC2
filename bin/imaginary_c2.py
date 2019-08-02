@@ -43,7 +43,7 @@ def printlog(logMessage,isResponse=False):
 		file.write("----- OUTGOING Response ----->\n")
 		file.write(logMessage+"\n")
 		file.write("<----------------\n\n")
-		file.close()
+	file.close()
 	
 request_count = 0
 fixed_URL_list = []
