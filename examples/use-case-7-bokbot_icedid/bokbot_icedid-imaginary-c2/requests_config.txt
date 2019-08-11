@@ -1,0 +1,71 @@
+{
+	"default":{
+		"source":"5ba93c9db0cff93f52b521d7420e43f6eda2784f",
+		"sourcetype":"data"
+	},
+	"requests":[ 
+		{
+			"url":"in\\.php\\?g=2&.*",
+			"urltype":"regex", 
+			"source":"c2dee961378d690e795d9efb787d6146ac5f3889",
+			"sourcetype":"data",
+			"comment":"instructions"
+		},
+		{ 
+			"url":"in\\.php\\?g=18&.*",
+			"urltype":"regex", 
+			"source":"e53c43b6c7df23abadb0bbbc273f9f03031f527d",
+			"sourcetype":"data",
+			"comment":"updating web injection configuration"
+		},
+		{ 
+			"url":"in\\.php\\?g=19&.*",
+			"urltype":"regex", 
+			"source":"c63437f5cea3a65f0b73decbcc2cb083d6e94f93",
+			"sourcetype":"data",
+			"comment":"updating web injection configuration"
+		},
+		{ 
+			"url":"in\\.php\\?g=36&.*",
+			"urltype":"regex", 
+			"source":"098d59614766d7d90b0a642040e39e4874b8bbf3",
+			"sourcetype":"data",
+			"comment":"executable module"
+		},
+		{ 
+			"url":"in\\.php\\?g=33&.*",
+			"urltype":"regex", 
+			"source":"f03e7f657e887b5d7449c6748738b88c4ca9ed72",
+			"sourcetype":"data",
+			"comment":"executable module"
+		},
+		{ 
+			"url":"in\\.php\\?g=20&.*",
+			"urltype":"regex", 
+			"source":"633435c00a8909bc8482d4ef4461f2906d8dc006",
+			"sourcetype":"data",
+			"comment":"update C2 hostname file"
+		},
+		{ 
+			"url":"in\\.php\\?g=4&.*",
+			"urltype":"regex", 
+			"source":"5ba93c9db0cff93f52b521d7420e43f6eda2784f",
+			"sourcetype":"data",
+			"comment":"response to send-in data"
+		},
+		{ 
+			"url":"in\\.php\\?g=34&.*",
+			"urltype":"regex", 
+			"source":"8430585244dbdef3d206ed381c71cc630883f55a",
+			"sourcetype":"data",
+			"comment":"executable module"
+		},
+		{ 
+			"url":"in\\.php\\?g=38&.*",
+			"urltype":"regex", 
+			"source":"d6ae032fddb0af253710fee1908bd75d68332b4b",
+			"sourcetype":"data",
+			"comment":"executable module"
+		}
+	]
+}

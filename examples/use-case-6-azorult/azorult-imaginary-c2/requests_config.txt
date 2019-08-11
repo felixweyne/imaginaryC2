@@ -1,0 +1,14 @@
+{
+  "default": {
+    "source": "default.txt", 
+    "sourcetype": "data"
+  }, 
+  "requests": [
+    {
+      "url": "index.php", 
+      "source": "df2a25abfdc71d2346968740472a18ce603d1860_decoded", 
+      "urltype": "fixed", 
+      "sourcetype": "data"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "default": {
+    "source": "default.txt", 
+    "sourcetype": "data"
+  }, 
+  "requests": [
+    {
+      "url": "4/forum.php", 
+      "source": "4a727efe103e3aff6653e31c19b1963724680279_decoded", 
+      "urltype": "fixed", 
+      "sourcetype": "data"
+    }, 
+    {
+      "url": "wp-content/plugins/auto-more-tag/1", 
+      "source": "f00073963c5c58b23da57024bcd4aaa010d19403", 
+      "urltype": "fixed", 
+      "sourcetype": "data"
+    }, 
+    {
+      "url": "mlu/forum.php", 
+      "source": "de72f385233291ad226609196b91128c16804828", 
+      "urltype": "fixed", 
+      "sourcetype": "data"
+    }, 
+    {
+      "url": "wp-content/plugins/auto-more-tag/2", 
+      "source": "06547e5c3e4a960299e2e1530d0b7e60a7411f86", 
+      "urltype": "fixed", 
+      "sourcetype": "data"
+    }, 
+    {
+      "url": "wp-content/plugins/auto-more-tag/3", 
+      "source": "d9917dff1e131815d958b6068e0d2c98bd4cea8a", 
+      "urltype": "fixed", 
+      "sourcetype": "data"
+    }
+  ]
+}

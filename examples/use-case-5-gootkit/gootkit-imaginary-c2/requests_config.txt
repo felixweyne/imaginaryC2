@@ -1,0 +1,39 @@
+{
+  "default": {
+    "source": "9f9af029585ba014e07cd3910ca976cf56160616", 
+    "sourcetype": "data"
+  }, 
+  "requests": [
+    {
+      "url": "rbody320", 
+      "source": "8dc8aba93c3e37cc0d2fa74caa139446ad56ea1b", 
+      "urltype": "fixed", 
+      "sourcetype": "data",
+      "addHeader0":["X-Powered-By","Express"],
+      "addHeader1":["x-ssl-client-verify","1.1.1.1"],
+      "addHeader2":["Content-type","application/octet-stream"],
+      "addHeader3":["ETag","W/\"4-RVY7zWcyvKL4S7IxKnUEtg\""]
+    }, 
+    {
+      "url": "rbody32", 
+      "source": "7ee4d847e92d31be98d24e449e7353823cf9b95c", 
+      "urltype": "fixed", 
+      "sourcetype": "data",
+	  "comment":"gootkit module"
+    }, 
+    {
+      "url": "200", 
+      "source": "9f9af029585ba014e07cd3910ca976cf56160616", 
+      "urltype": "fixed", 
+      "sourcetype": "data",
+	  "comment":"ping response"
+    },
+	{
+      "url": "rpersist4/.*", 
+      "source": "xor_decode.py", 
+      "urltype": "regex", 
+      "sourcetype": "python",
+	  "comment":"XORed Gootkit EXE update"
+    }
+  ]
+}

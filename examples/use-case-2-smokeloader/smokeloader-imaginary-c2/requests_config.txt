@@ -1,0 +1,14 @@
+{
+  "default": {
+    "source": "default.txt", 
+    "sourcetype": "data"
+  }, 
+  "requests": [
+    {
+      "url": "tt/", 
+      "source": "ed8cdccf26276badc28cafa358c9dcc5fc30b35f", 
+      "urltype": "fixed", 
+      "sourcetype": "data"
+    }
+  ]
+}
