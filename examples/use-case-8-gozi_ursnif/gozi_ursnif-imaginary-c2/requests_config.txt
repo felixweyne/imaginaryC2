@@ -1,0 +1,14 @@
+{
+  "default": {
+    "source": "default.txt", 
+    "sourcetype": "data"
+  }, 
+  "requests": [
+    {
+      "url": "images/.*", 
+      "source": "recurring-path.py", 
+      "urltype": "regex", 
+      "sourcetype": "python"
+    }
+  ]
+}
