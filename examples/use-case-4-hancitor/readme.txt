@@ -24,23 +24,23 @@ POST contents (machine fingerprinting data): GUID=15568065842790665216&BUILD=11h
 POST response: base64-encoded (XOR-encrypted) download instructions. The base64 encoded data is encrypted with a XOR key (value '0x7A') (as documented in the above articles).
 The formatted decoded response looks as follows:
 	{l:
-		xxxp://dokucenter.optitime.de/wp-content/plugins/auto-more-tag/1|
-		xxxp://www.laxmigroup1986.com/wp-content/plugins/easy-responsive-tabs/1|
-		xxxp://shawneklassen.com/wp-content/plugins/foobox-image-lightbox/1|
-		xxxp://jointings.org/eng/wp-content/plugins/featurific-for-wordpress/1|
-		xxxp://kitcross.ca/wp-content/plugins/autoptimize/1
+		xxxp://dokucenter.optitime[.]de/wp-content/plugins/auto-more-tag/1|
+		xxxp://www.laxmigroup1986[.]com/wp-content/plugins/easy-responsive-tabs/1|
+		xxxp://shawneklassen[.]com/wp-content/plugins/foobox-image-lightbox/1|
+		xxxp://jointings[.]org/eng/wp-content/plugins/featurific-for-wordpress/1|
+		xxxp://kitcross[.]ca/wp-content/plugins/autoptimize/1
 	}{b:
-		xxxp://dokucenter.optitime.de/wp-content/plugins/auto-more-tag/2|
-		xxxp://www.laxmigroup1986.com/wp-content/plugins/easy-responsive-tabs/2|
-		xxxp://shawneklassen.com/wp-content/plugins/foobox-image-lightbox/2|
-		xxxp://jointings.org/eng/wp-content/plugins/featurific-for-wordpress/2|
-		xxxp://kitcross.ca/wp-content/plugins/autoptimize/2
+		xxxp://dokucenter.optitime[.]de/wp-content/plugins/auto-more-tag/2|
+		xxxp://www.laxmigroup1986[.]com/wp-content/plugins/easy-responsive-tabs/2|
+		xxxp://shawneklassen[.]com/wp-content/plugins/foobox-image-lightbox/2|
+		xxxp://jointings[.]org/eng/wp-content/plugins/featurific-for-wordpress/2|
+		xxxp://kitcross[.]ca/wp-content/plugins/autoptimize/2
 	}{r:
-		xxxp://dokucenter.optitime.de/wp-content/plugins/auto-more-tag/3|
-		xxxp://www.laxmigroup1986.com/wp-content/plugins/easy-responsive-tabs/3|
-		xxxp://shawneklassen.com/wp-content/plugins/foobox-image-lightbox/3|
-		xxxp://jointings.org/eng/wp-content/plugins/featurific-for-wordpress/3|
-		xxxp://kitcross.ca/wp-content/plugins/autoptimize/3
+		xxxp://dokucenter.optitime[.]de/wp-content/plugins/auto-more-tag/3|
+		xxxp://www.laxmigroup1986[.]com/wp-content/plugins/easy-responsive-tabs/3|
+		xxxp://shawneklassen[.]com/wp-content/plugins/foobox-image-lightbox/3|
+		xxxp://jointings[.]org/eng/wp-content/plugins/featurific-for-wordpress/3|
+		xxxp://kitcross[.]ca/wp-content/plugins/autoptimize/3
 	}
 The URLs in the above decoded response contain payloads (which will be downloaded and executed by Hancitor). The letters refer to how the payload needs to be executed (e.g. in-memory or saved to disk).
 According to the 'malware traffic analysis' blog entry, the payloads are: Pony, Evil Pony and Ursnif.
