@@ -64,6 +64,10 @@ Use Case prerequisites
 	MD5: c91a65a4837ae7b379574942f571d4cd 
 	SHA1: 4e77ffa1fbd78badcdd888147c4ebdfb93e0195e
 	SHA256: 5d4d21d66d2e7425253b2f3e66862270e2b1a7c802f9b4a3a17fd3e83021dcb0
+*This use case could optionally be used in conjunction with the following unpacked Azorult sample:
+	MD5: d2e91403f487bc68f7411ca776ff9bf6 
+	SHA1: 4f67ee9100c5ca64820f1c179b9a1df31e1fdd68
+	SHA256: 1ad46e057162702328a785b8b9103cec39d6119d79554394cce12eb2f4c98b19
 *This use case has been tested in a windows 7 SP1, 64-bit virtual machine, with python 2.7 installed.
 *(Set the system clock to July 2019 for optimal results).
 
