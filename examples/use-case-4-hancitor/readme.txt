@@ -57,6 +57,7 @@ Use Case prerequisites
 	MD5: 98709455985273fc5c6cc7d870697aa8
 	SHA1: 99026c03389ebd6b338cf29bf27fde44e651cca3
 	SHA256: a7e3c1048581e14efa8ef6fd4358c597d1f802207a20dfd178e2d9020fd0cc60
+*(Note that the above mentioned samples can be found inside the archive 'examples/use-case-samples.zip'. The archive password is: 'infected').
 *This use case has been tested in a windows 7 SP1, 64-bit virtual machine, with python 2.7 installed.
 *(Set the system clock to April 2019 for optimal results).
 

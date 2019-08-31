@@ -20,6 +20,11 @@ Use Case prerequisites
 	MD5: 4cb551de1658cc49235d73aa77bbe0ab 
 	SHA1: 4389a7444599af894d2629ba1ef71908f0720f13
 	SHA256: e04727ff07787c3447844dcd9a489faaf2f0dfe2fc33133a2977f16c5aed265f
+*This use case could optionally be used in conjunction with the following unpacked TrickBot loader:
+	MD5: dcd52decc37856c622e6c29bc8558f8e
+	SHA1: 4dc5a4f59cda50c7185eb907439b678ef3185ebe
+	SHA256: 58ca66e46dfb32ce91fce7b22e9e1a0e5543b8fde0add84dd1b61e117067cdec
+*(Note that the above mentioned samples can be found inside the archive 'examples/use-case-samples.zip'. The archive password is: 'infected').
 *The Trickbot downloader must run in a 64-bit sandbox as 32-bit module downloads are not simulated. 
 *The virtual machine must be connected to the internet (TrickBot performs an HTTP request to retrieve the machine's public IP address).
  If you don't want to connect to the internet, you can simulate the HTTP response containing a fake IP easily with imaginary C2.

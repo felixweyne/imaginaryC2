@@ -26,6 +26,7 @@ Use Case prerequisites
 	MD5: 8714fcaad97d781bd5234b087853b61e 
 	SHA1: ec6633b54e8eed8c67bd2fcba1addf56b44d876a
 	SHA256: 9c3994c5ee5ce6bd94a17e66b7a88714d566ee99381b83d13ff1037654a780b5
+*(Note that the above mentioned samples can be found inside the archive 'examples/use-case-samples.zip'. The archive password is: 'infected').
 *The imaginary C2 response provides a 64-bit DLL and the DridexLoader sample should thus be run on a 64-bit machine.
 *This use case has been tested in a windows 7 SP1, 64-bit virtual machine, with python 2.7 installed.
 *(Set the system clock to June 2019 for optimal results).
