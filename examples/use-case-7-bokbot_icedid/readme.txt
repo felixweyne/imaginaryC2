@@ -117,7 +117,16 @@ How to run
 ----------
 *Ensure you are in a sandbox environment (e.g. virtual throwaway machine) and have python 2.7 installed
 *Copy the redirect_config.txt and requests_config.txt to imaginary C2's folder
-*Copy the files in server_data to imaginary C2's server_data folder
+*Copy the files in server_data to imaginary C2's server_data folder.
+ Double check that the hashes for the files inside the 'server_data' folder correspond to the hashes in the filenames. 
+ Github may alter the newline character. With the below Powershell script you can ensure that the newline characters are the right ones:
+	function change_line_ending($path) {
+		$text=[IO.File]::ReadAllText($path) -replace "`n", "`r`n";
+		[IO.File]::WriteAllText($path, $text);
+	}
+	$data_dir="bokbot_icedid-imaginary-c2\server_data"
+	change_line_ending("$data_dir\051f975d3e37ec6fc3eda5cfadc1b4aea7698a04");
+	change_line_ending("$data_dir\c2dee961378d690e795d9efb787d6146ac5f3889");
 *Run imaginary C2's redirect_to_imaginary_c2.bat file (as administrator)
 *(Optionally: disable your network adapter, no internet connectivity is needed since Imaginary C2 simulates everything)
 *Configure Imaginary C2 to use SSL and prevent it from stripping GET parameters in the request URL.
@@ -129,6 +138,6 @@ How to run
 		replace it by the following line:
 			request_path_filtered = urllib.unquote(request_path[1:]) #don't filter
 *Run imaginary C2's launch_imaginary_c2_server.bat
-*Run Bokbot/IcedID (SHA1 above). You should see connections appearing in the imaginary C2's commmandline window.
+*Run Bokbot/IcedID (SHA1 above). You should see connections appearing in the imaginary C2's commmandline window. (Note that it can take about 5 minutes before BokBot starts connecting to the C2).
 *If all works correctly, you will see some additional svchost instances being spawned.
  An example screen capture of this simulation can be found in: media/imaginary_c2_bokbot_icedid_simulation.mp4
