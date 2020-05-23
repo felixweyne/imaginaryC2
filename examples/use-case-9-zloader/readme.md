@@ -16,9 +16,9 @@ https://www.proofpoint.com/us/blog/threat-insight/zloader-loads-again-new-zloade
   
 After having received the main bot (via the response to the second request), the loader transfers execution towards it. The main bot then launches parallel threads to fetch additional modules. The order of these requests can change per execution, I have added the extracted C2 responses for the additional modules in the 'server_data' folder. An overview of their decrypted contents can be found below:  
 
-Request | Encrypted SHA-1 | Decrypted SHA-1 | Description  
---- | --- | ---  
-2nd | 738e0c5096005c09f397a9feba932707e42d1c50) | 0631cf33c3c0915934a61f728da86b19f6302115 | main bot  
+| Request | Description | Encrypted SHA-1 | Decrypted SHA-1 |
+| ------- | ----------- | --------------- | --------------- |
+| 2nd | 738e0c5096005c09f397a9feba932707e42d1c50) | 0631cf33c3c0915934a61f728da86b19f6302115 | main bot  
 
 The decrypted modules can be found on Virustotal, the encrypted responses can be found in the 'server_data' folder. 
 The communication flow can be found in the packet capture inside the folder 'traffic-capture-Fiddler'. 
