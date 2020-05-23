@@ -1,0 +1,7 @@
+{
+	"default":{
+		"source":"recurring-path.py",
+		"sourcetype":"python"
+	},
+	"requests":[]
+}
