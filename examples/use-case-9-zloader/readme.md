@@ -9,11 +9,12 @@ Imaginary C2 can be used to simulate the hosting of the encrypted Zloader module
 Upon execution, Zloader injects itself into msiexec. It then executes some evasive CPU-intensive junk code before it connects to the C2 server.
 
 The first request to the C2 server is a check-in request, the second request fetches the main bot DLL. The responses are encoded via RC4 and XOR.  
-These and other C2 requests performed by Zloader are documented really well in a writeup of Twitter user @hasherezade:  
+These and other C2 requests performed by Zloader are documented really well in a writeup of Twitter user [@hasherezade](https://twitter.com/hasherezade):  
 https://resources.malwarebytes.com/files/2020/05/The-Silent-Night-Zloader-Zbot_Final.pdf  
 Another writeup which discusses the C2 communication and modules is the following one of Proofpoint:  
 https://www.proofpoint.com/us/blog/threat-insight/zloader-loads-again-new-zloader-variant-returns  
-  
+Getting the right responses from the Zloader C2 servers can be quite tricky, due to some server-side restrictions (e.g. geographic (IP) filtering). I'd like to acknowledge the useful insights from [@0verfl0w_](https://twitter.com/0verfl0w_) which helped during my replication. 
+
 After having received the main bot (via the response to the second request), the loader transfers execution towards it. The main bot then launches parallel threads to fetch additional modules. The order of these requests can change per execution, I have added the extracted C2 responses for the additional modules in the 'server_data' folder. An overview of their decrypted contents can be found below:  
 
 | Request | Description | Encrypted SHA-1 | Decrypted SHA-1 |
