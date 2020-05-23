@@ -35,28 +35,28 @@ The communication flow can be found in the packet capture inside the folder 'tra
 
 Use Case prerequisites 
 -----------------------
-*This use case should be used in conjunction with the following Zloader sample:
-	MD5: 9d32cc86f7791185dec921fbc7b3be78 
-	SHA1: 65764ac0f8cd50d3c0e2d74f789e702a6353c26c
-	SHA256: 6576da1f0d0e8c2d7457c2898d0b8d2d7ad40527c60473910f86da6cf39c0951
-*This use case could optionally be used in conjunction with the following unpacked Zloader sample:
-	MD5: e4a1506fbd5e36db0fbe53bbd4b4087d 
-	SHA1: 9b0798319ae62556cb2a943da5a2c3ac3fd34f6d
-	SHA256: af3aeeeefdff558bcb79985165efd3b66e883b9efc3d57191618ceaca52f460a
-*This use case has been tested in a windows 7 SP1, 64-bit virtual machine, with python 2.7 installed.
-*(Set the system clock to 29th April, 2020 for optimal results).
+*This use case should be used in conjunction with the following Zloader sample:  
+	MD5: 9d32cc86f7791185dec921fbc7b3be78  
+	SHA1: 65764ac0f8cd50d3c0e2d74f789e702a6353c26c  
+	SHA256: 6576da1f0d0e8c2d7457c2898d0b8d2d7ad40527c60473910f86da6cf39c0951  
+*This use case could optionally be used in conjunction with the following unpacked Zloader sample:  
+	MD5: e4a1506fbd5e36db0fbe53bbd4b4087d   
+	SHA1: 9b0798319ae62556cb2a943da5a2c3ac3fd34f6d  
+	SHA256: af3aeeeefdff558bcb79985165efd3b66e883b9efc3d57191618ceaca52f460a  
+*This use case has been tested in a windows 7 SP1, 64-bit virtual machine, with python 2.7 installed.  
+*(Set the system clock to 29th April, 2020 for optimal results).  
 
 How to run
 ----------
-*Ensure you are in a sandbox environment (e.g. virtual throwaway machine) and have python 2.7 installed
-*Copy the redirect_config.txt and requests_config.txt to imaginary C2's folder
-*Copy the files in server_data to imaginary C2's server_data folder
-*Run imaginary C2's redirect_to_imaginary_c2.bat file (as administrator)
-*(Optionally: disable your network adapter, no internet connectivity is needed since Imaginary C2 simulates everything)
-*Configure Imaginary C2 to use SSL. You can do this by editing the following line in imaginary_c2.py:
-	ssl_server = True
-*Run imaginary C2's launch_imaginary_c2_server.bat
-*Run Zloader (SHA1 above). As this file is a DLL file, you can't just double click on it. You can run it via the following cmdline:
-    rundl32.exe c:\path_to_dll\zbot.dll,#1
- After running the commandline you should see connections appearing in the imaginary C2's commmandline window.
-*If all works correctly, you will see some additional processes being spawned by msiexec (in which the retrieved main module runs). An example spawned process is "net.exe" with the corresponding commandline: "net view /all /domain".
+*Ensure you are in a sandbox environment (e.g. virtual throwaway machine) and have python 2.7 installed  
+*Copy the redirect_config.txt and requests_config.txt to imaginary C2's folder  
+*Copy the files in server_data to imaginary C2's server_data folder  
+*Run imaginary C2's redirect_to_imaginary_c2.bat file (as administrator)  
+*(Optionally: disable your network adapter, no internet connectivity is needed since Imaginary C2 simulates everything)  
+*Configure Imaginary C2 to use SSL. You can do this by editing the following line in imaginary_c2.py:  
+	ssl_server = True  
+*Run imaginary C2's launch_imaginary_c2_server.bat  
+*Run Zloader (SHA1 above). As this file is a DLL file, you can't just double click on it. You can run it via the following cmdline:  
+    rundl32.exe c:\path_to_dll\zbot.dll,#1  
+ After running the commandline you should see connections appearing in the imaginary C2's commmandline window.  
+*If all works correctly, you will see some additional processes being spawned by msiexec (in which the retrieved main module runs). An example spawned process is "net.exe" with the corresponding commandline: "net view /all /domain".  
