@@ -36,9 +36,10 @@ The communication flow can be found in the packet capture inside the folder 'tra
 Use Case prerequisites 
 -----------------------
 *This use case should be used in conjunction with the following Zloader sample:  
-	MD5: 9d32cc86f7791185dec921fbc7b3be78  
+ 	MD5: 9d32cc86f7791185dec921fbc7b3be78  
 	SHA1: 65764ac0f8cd50d3c0e2d74f789e702a6353c26c  
 	SHA256: 6576da1f0d0e8c2d7457c2898d0b8d2d7ad40527c60473910f86da6cf39c0951  
+
 *This use case could optionally be used in conjunction with the following unpacked Zloader sample:  
 	MD5: e4a1506fbd5e36db0fbe53bbd4b4087d   
 	SHA1: 9b0798319ae62556cb2a943da5a2c3ac3fd34f6d  
