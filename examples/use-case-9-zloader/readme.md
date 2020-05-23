@@ -18,7 +18,8 @@ After having received the main bot (via the response to the second request), the
 
 Request | Encrypted SHA-1 | Decrypted SHA-1 | Description
 --- | --- | ---
-2nd | 738e0c5096005c09f397a9feba932707e42d1c50) | 0631cf33c3c0915934a61f728da86b19f6302115 | main bot
+2nd | 738e0c5096005c09f397a9feba932707e42d1c50) | 0631cf33c3c0915934a61f728da86b19f6302115 | main bot  
+
 	*3th request (encrypted: 06c0ef826d727b5226149b9363ccaeb85e9d6963) -> fb76a718899e5252d2b8ab56bdbbcc033d9c41d8: unknown
 	*4th request (encrypted: 3e40be7aded41a0252b40bc531c9ab30f3b27a55) -> b784599c82bb90d5267fd70aaa42acc0c614b5d2: zlib
 	*5th request (encrypted: d617ad74dd081912476e0c31e19afc1f14b438b3) -> 4ced2186426da52184a0e3d52c452dc64e0fa110: hiddenVNC 32-bit
