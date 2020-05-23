@@ -30,8 +30,7 @@ After having received the main bot (via the response to the second request), the
 The decrypted modules can be found on Virustotal, the encrypted responses can be found in the 'server_data' folder. 
 The communication flow can be found in the packet capture inside the folder 'traffic-capture-Fiddler'. 
 
-![test](https://github.com/felixweyne/imaginaryC2/blob/master/media/imaginary_c2_zloader_simulation.png?raw=true) 
-
+![Zloader example](../../media/imaginary_c2_zloader_simulation.png?raw=true) 
 
 
 Use Case prerequisites 
