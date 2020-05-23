@@ -8,13 +8,13 @@ Imaginary C2 can be used to simulate the hosting of the encrypted Zloader module
 
 Upon execution, Zloader injects itself into msiexec. It then executes some evasive CPU-intensive junk code before it connects to the C2 server.
 
-The first request to the C2 server is a check-in request, the second request fetches the main bot DLL. The responses are encoded via RC4 and XOR.
-These and other C2 requests performed by Zloader are documented really well in a writeup of Twitter user @hasherezade:
-https://resources.malwarebytes.com/files/2020/05/The-Silent-Night-Zloader-Zbot_Final.pdf
-Another writeup which discusses the C2 communication and modules is the following one of Proofpoint:
-https://www.proofpoint.com/us/blog/threat-insight/zloader-loads-again-new-zloader-variant-returns
-
-After having received the main bot (via the response to the second request), the loader transfers execution towards it. The main bot then launches parallel threads to fetch additional modules. The order of these requests can change per execution, I have added the extracted C2 responses for the additional modules in the 'server_data' folder. An overview of their decrypted contents can be found below:
+The first request to the C2 server is a check-in request, the second request fetches the main bot DLL. The responses are encoded via RC4 and XOR.  
+These and other C2 requests performed by Zloader are documented really well in a writeup of Twitter user @hasherezade:  
+https://resources.malwarebytes.com/files/2020/05/The-Silent-Night-Zloader-Zbot_Final.pdf  
+Another writeup which discusses the C2 communication and modules is the following one of Proofpoint:  
+https://www.proofpoint.com/us/blog/threat-insight/zloader-loads-again-new-zloader-variant-returns  
+  
+After having received the main bot (via the response to the second request), the loader transfers execution towards it. The main bot then launches parallel threads to fetch additional modules. The order of these requests can change per execution, I have added the extracted C2 responses for the additional modules in the 'server_data' folder. An overview of their decrypted contents can be found below:  
 
 	*2nd request (encrypted: 738e0c5096005c09f397a9feba932707e42d1c50) -> 0631cf33c3c0915934a61f728da86b19f6302115: main bot
 	*3th request (encrypted: 06c0ef826d727b5226149b9363ccaeb85e9d6963) -> fb76a718899e5252d2b8ab56bdbbcc033d9c41d8: unknown
