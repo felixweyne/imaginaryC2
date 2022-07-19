@@ -53,6 +53,7 @@ How to run
 	https_multi_port = [443,447,449]
 	ssl_server = True
 	multiport = True
+*Set system date to 11/20/2018
 *Run imaginary C2's redirect_to_imaginary_c2.bat file (as administrator)
 *Run imaginary C2's launch_imaginary_c2_server.bat
 *Run Trickbot downloader (SHA1 above). You should see connections appearing in the imaginary C2's commmandline window. (note: the first connection is to a public IP lookup service, all the other connections should be redirected to imaginary C2).
