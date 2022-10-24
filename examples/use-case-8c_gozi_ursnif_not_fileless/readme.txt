@@ -7,7 +7,7 @@ Use Case description
 ---------------------
 Imaginary C2 can be used to simulate the hosting of the responses to the Gozi loader. These responses contain the Gozi payload. More about this can be read on these resources:
 https://github.com/felixweyne/imaginaryC2/tree/master/examples/use-case-8-gozi_ursnif
-https://news.sophos.com/en-us/2019/12/24/gozi-v3-tracked-by-their-own-stealth/
+https://app.any.run/tasks/debba356-df73-46c1-8b84-f8c5c1881424/
 
 This usecase has been added for "museum cataloguing" purposes, after seeing great recent Gozi writeups :-):
 https://www.mandiant.com/resources/blog/rm3-ldr4-ursnif-banking-fraud
