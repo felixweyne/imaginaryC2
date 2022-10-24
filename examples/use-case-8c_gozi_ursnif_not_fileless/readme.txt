@@ -30,8 +30,6 @@ How to run
 *Copy the redirect_config.txt and requests_config.txt to imaginary C2's folder
 *Copy the files in server_data to imaginary C2's server_data folder
 *Run imaginary C2's redirect_to_imaginary_c2.bat file (as administrator)
-*Configure Imaginary C2 to use SSL. You can do this by editing the following lines in imaginary_c2.py:
-	ssl_server = True
 *Configure Imaginary C2 to use a timeout. In some of my test runs it seemed like the interaction between the simple HTTP server and Internet Explorer (used by Gozi for the C2
  communication) resulted in a connection which never got closed. To add a timeout, look for the following line inside "bin/imaginary_c2.py":
 	"class RequestHandler(BaseHTTPRequestHandler):" 
