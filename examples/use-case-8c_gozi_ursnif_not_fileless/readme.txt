@@ -1,8 +1,6 @@
 This use case aims to partially simulate the server side of Gozi/Ursnif. 
 This usecase is a variant of this usecase: https://github.com/felixweyne/imaginaryC2/tree/master/examples/use-case-8-gozi_ursnif
 
-**I believe this Gozi flavour is named Gozi RM2/GoziAT.** 
-
 !!!This simulation involves running malware. Only do this in a sandbox environment and if you know what you are doing!!!
 
 Use Case description
