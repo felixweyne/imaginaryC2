@@ -1,6 +1,8 @@
 This use case aims to partially simulate the server side of Gozi/Ursnif. 
 This usecase is a variant of this usecase: https://github.com/felixweyne/imaginaryC2/tree/master/examples/use-case-8-gozi_ursnif
 
+**I believe this Gozi flavour is named Gozi RM2/GoziAT.** 
+
 !!!This simulation involves running malware. Only do this in a sandbox environment and if you know what you are doing!!!
 
 Use Case description
@@ -12,6 +14,7 @@ https://app.any.run/tasks/debba356-df73-46c1-8b84-f8c5c1881424/
 This usecase has been added for "museum cataloguing" purposes, after seeing great recent Gozi writeups :-):
 https://www.mandiant.com/resources/blog/rm3-ldr4-ursnif-banking-fraud
 https://medium.com/csis-techblog/chapter-1-from-gozi-to-isfb-the-history-of-a-mythical-malware-family-82e592577fef
+https://research.checkpoint.com/2020/gozi-the-malware-with-a-thousand-faces/
 
 
 Use Case prerequisites 
