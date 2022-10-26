@@ -1,6 +1,7 @@
 This use case aims to partially simulate the server side of Gozi/Ursnif. 
 This usecase is a variant of this usecase: https://github.com/felixweyne/imaginaryC2/tree/master/examples/use-case-8-gozi_ursnif
-I believe this Gozi flavour is Gozi RM3. The last stage unpacked sample (see use-case-samples.zip) has been procuded thanks to the wonderful work here: https://github.com/hasherezade/funky_malware_formats/tree/master/isfb_parser
+
+**I believe this Gozi flavour is Gozi RM3.** The last stage unpacked sample (see use-case-samples.zip) has been procuded thanks to the wonderful work here: https://github.com/hasherezade/funky_malware_formats/tree/master/isfb_parser
 
 !!!This simulation involves running malware. Only do this in a sandbox environment and if you know what you are doing!!!
 
